@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Noto Sans KR', 'Inter', sans-serif; }
-        /* 연도 버튼 클릭 시 살짝 커지는 애니메이션 효과 */
         .donation-tab-btn {
             transition: all 0.25s ease-in-out;
         }
@@ -140,14 +139,12 @@
 
             <!-- 기관 배너 영역 -->
             <div class="mt-12 max-w-xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-4">
-                <!-- 국세청 배너 -->
                 <a href="https://www.nts.go.kr" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center space-x-3 bg-white hover:bg-slate-100 border border-slate-200 px-6 py-3.5 rounded-xl transition-all shadow-md group">
                     <div class="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center text-white font-bold text-sm">
                         <i class="fa-solid fa-landmark"></i>
                     </div>
                     <span class="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition-colors">국세청 홈페이지 <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1 text-slate-500"></i></span>
                 </a>
-                <!-- 국민인권보호위원회 배너 -->
                 <a href="https://www.humanrights.go.kr" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center space-x-3 bg-white hover:bg-slate-100 border border-slate-200 px-6 py-3.5 rounded-xl transition-all shadow-md group">
                     <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">
                         <i class="fa-solid fa-scale-balanced"></i>
@@ -502,7 +499,6 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Month Item -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                     <span class="text-xs font-bold bg-brand-100 text-brand-800 px-3 py-1 rounded-full">2026.11</span>
                     <h3 class="text-lg font-bold text-slate-900 mt-3 mb-1">오리엔테이션 및 개강식</h3>
@@ -567,7 +563,7 @@
         </div>
     </section>
 
-    <!-- Donation Usage Section (기부금사용내역 PDF 웹뷰어 연동 섹션) -->
+    <!-- Donation Usage Section (기부금사용내역 PDF 미리보기 뷰어 섹션) -->
     <section id="donations" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -590,7 +586,7 @@
                 <button onclick="selectDonationYear('2025')" id="btn-2025" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">2025년</button>
             </div>
 
-            <!-- PDF 미리보기 뷰어 영역 -->
+            <!-- PDF 미리보기 뷰어 영역 (Google Docs Viewer 연동) -->
             <div class="max-w-5xl mx-auto bg-slate-100 rounded-3xl p-4 sm:p-8 border border-slate-200 shadow-inner">
                 <div class="flex flex-col sm:flex-row justify-between items-center mb-4 px-2 gap-3">
                     <h3 id="viewer-title" class="text-lg font-bold text-slate-900">2022년 기부금사용내역서 (PDF 미리보기)</h3>
@@ -714,7 +710,6 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when clicking menu items
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -746,20 +741,17 @@
             '2025': 'https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2025%EB%85%84.pdf'
         };
 
-        // 연도 선택 시 선택된 버튼에 선명한 색상, 굵기 및 크기 확대(scale-105) 적용 함수
+        // 연도 선택 함수 (Google Docs Viewer 연동 + 선택된 버튼 크기 확대 및 글자 가독성 보장)
         function selectDonationYear(year) {
-            // 모든 버튼을 기본 스타일로 초기화 (크기, 글자 두께, 배경색 원복)
             document.querySelectorAll('.donation-tab-btn').forEach(btn => {
                 btn.className = "donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200";
             });
 
-            // 클릭한 버튼만 강조 스타일 적용 (브랜드 색상 배경, 흰색 굵은 텍스트, 살짝 큰 크기와 그림자)
             const activeBtn = document.getElementById(`btn-${year}`);
             if (activeBtn) {
                 activeBtn.className = "donation-tab-btn px-6 py-3 rounded-xl font-extrabold text-base bg-brand-800 text-white shadow-lg scale-105";
             }
 
-            // Google Docs Viewer 주소 조합 및 렌더링
             const rawUrl = pdfFiles[year];
             const viewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(rawUrl)}&embedded=true`;
 
