@@ -34,6 +34,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Noto Sans KR', 'Inter', sans-serif; }
+        /* 연도 버튼 클릭 시 살짝 커지는 애니메이션 효과 */
+        .donation-tab-btn {
+            transition: all 0.25s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
@@ -551,7 +555,7 @@
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                     <span class="text-xs font-bold bg-brand-100 text-brand-800 px-3 py-1 rounded-full">2027.09</span>
-                    <h3 class="text-lg font-bold text-brand-800 px-3 py-1 rounded-full">재능기부 및 사회공헌 나눔</h3>
+                    <h3 class="text-lg font-bold text-slate-900 mt-3 mb-1">재능기부 및 사회공헌 나눔</h3>
                     <p class="text-sm text-slate-600">사회적 가치 창출 및 재능기부 나눔 프로젝트</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
@@ -563,7 +567,7 @@
         </div>
     </section>
 
-    <!-- Donation Usage Section (2019~2025년 기부금 PDF 뷰어 연동 섹션) -->
+    <!-- Donation Usage Section (기부금사용내역 PDF 웹뷰어 연동 섹션) -->
     <section id="donations" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -571,33 +575,33 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-900">기부금사용내역</h2>
                 <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
                 <p class="text-slate-600 mt-4 text-sm sm:text-base">
-                    투명한 운영을 위해 연도별 기부금 사용내역(PDF)을 공개합니다. 연도를 선택하여 웹페이지에서 바로 확인하세요.
+                    투명한 운영을 위해 연도별 기부금 사용내역(PDF)을 공개합니다. 연도를 선택하여 웹페이지에서 바로 미리 확인하세요.
                 </p>
             </div>
 
-            <!-- 2019~2025년 연도별 선택 버튼 -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-                <button onclick="selectDonationYear('2019')" id="btn-2019" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">2019년</button>
-                <button onclick="selectDonationYear('2020')" id="btn-2020" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">2020년</button>
-                <button onclick="selectDonationYear('2021')" id="btn-2021" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">2021년</button>
-                <button onclick="selectDonationYear('2022')" id="btn-2022" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all bg-brand-800 text-white shadow-md">2022년</button>
-                <button onclick="selectDonationYear('2023')" id="btn-2023" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">2023년</button>
-                <button onclick="selectDonationYear('2024')" id="btn-2024" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">2024년</button>
-                <button onclick="selectDonationYear('2025')" id="btn-2025" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">2025년</button>
+            <!-- 2019~2025년 연도별 선택 버튼 (기본 2022년 선택 강조 및 확대 효과 적용) -->
+            <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-10">
+                <button onclick="selectDonationYear('2019')" id="btn-2019" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">2019년</button>
+                <button onclick="selectDonationYear('2020')" id="btn-2020" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">2020년</button>
+                <button onclick="selectDonationYear('2021')" id="btn-2021" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">2021년</button>
+                <button onclick="selectDonationYear('2022')" id="btn-2022" class="donation-tab-btn px-6 py-3 rounded-xl font-extrabold text-base bg-brand-800 text-white shadow-lg scale-105">2022년</button>
+                <button onclick="selectDonationYear('2023')" id="btn-2023" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">2023년</button>
+                <button onclick="selectDonationYear('2024')" id="btn-2024" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">2024년</button>
+                <button onclick="selectDonationYear('2025')" id="btn-2025" class="donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">2025년</button>
             </div>
 
-            <!-- PDF 뷰어 영역 (GitHub Raw 링크 연동) -->
+            <!-- PDF 미리보기 뷰어 영역 -->
             <div class="max-w-5xl mx-auto bg-slate-100 rounded-3xl p-4 sm:p-8 border border-slate-200 shadow-inner">
-                <div class="flex justify-between items-center mb-4 px-2">
-                    <h3 id="viewer-title" class="text-lg font-bold text-slate-900">2022년 기부금사용내역서 (PDF)</h3>
-                    <a id="download-btn" href="https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2022%EB%85%84.pdf" target="_blank" class="text-xs bg-brand-600 hover:bg-brand-700 text-white font-semibold px-3.5 py-2 rounded-lg transition-colors shadow-sm">
-                        <i class="fa-solid fa-download mr-1.5"></i>새창으로 열기 / 다운로드
+                <div class="flex flex-col sm:flex-row justify-between items-center mb-4 px-2 gap-3">
+                    <h3 id="viewer-title" class="text-lg font-bold text-slate-900">2022년 기부금사용내역서 (PDF 미리보기)</h3>
+                    <a id="download-btn" href="https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2022%EB%85%84.pdf" target="_blank" class="text-xs bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2.5 rounded-lg transition-colors shadow-sm">
+                        <i class="fa-solid fa-download mr-1.5"></i>원본 PDF 파일 다운로드
                     </a>
                 </div>
                 
-                <!-- PDF 웹페이지 내장 뷰어 (iframe) -->
-                <div class="w-full h-[650px] bg-white rounded-2xl overflow-hidden shadow-md border border-slate-300">
-                    <iframe id="pdf-viewer" src="https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2022%EB%85%84.pdf" class="w-full h-full" type="application/pdf"></iframe>
+                <!-- 웹페이지 내부 PDF 미리보기 <iframe> 영역 -->
+                <div class="w-full h-[700px] bg-white rounded-2xl overflow-hidden shadow-md border border-slate-300">
+                    <iframe id="pdf-viewer" src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2022%EB%85%84.pdf&embedded=true" class="w-full h-full border-0"></iframe>
                 </div>
             </div>
         </div>
@@ -701,7 +705,7 @@
         </div>
     </footer>
 
-    <!-- JS for Mobile Menu, Form & PDF Viewer Tabs -->
+    <!-- JS for Mobile Menu, Form & PDF Preview Viewer -->
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -731,7 +735,7 @@
             }, 100);
         }
 
-        // 연도별 PDF 파일 매핑 (GitHub Raw URL 기준)
+        // 연도별 PDF Raw 링크 매핑
         const pdfFiles = {
             '2019': 'https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2019%EB%85%84.pdf',
             '2020': 'https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2020%EB%85%84.pdf',
@@ -742,26 +746,26 @@
             '2025': 'https://raw.githubusercontent.com/KCNR000/Donation-Usage-Details/main/2025%EB%85%84.pdf'
         };
 
-        // 기부금사용내역 연도 선택 및 PDF 뷰어 전환 함수
+        // 연도 선택 시 선택된 버튼에 선명한 색상, 굵기 및 크기 확대(scale-105) 적용 함수
         function selectDonationYear(year) {
-            // 모든 버튼 스타일 초기화
+            // 모든 버튼을 기본 스타일로 초기화 (크기, 글자 두께, 배경색 원복)
             document.querySelectorAll('.donation-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-brand-800', 'text-white', 'shadow-md');
-                btn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+                btn.className = "donation-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200";
             });
 
-            // 선택된 버튼 강조
+            // 클릭한 버튼만 강조 스타일 적용 (브랜드 색상 배경, 흰색 굵은 텍스트, 살짝 큰 크기와 그림자)
             const activeBtn = document.getElementById(`btn-${year}`);
             if (activeBtn) {
-                activeBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-                activeBtn.classList.add('bg-brand-800', 'text-white', 'shadow-md');
+                activeBtn.className = "donation-tab-btn px-6 py-3 rounded-xl font-extrabold text-base bg-brand-800 text-white shadow-lg scale-105";
             }
 
-            // PDF 뷰어 및 다운로드 링크 업데이트
-            const targetUrl = pdfFiles[year];
-            document.getElementById('pdf-viewer').src = targetUrl;
-            document.getElementById('download-btn').href = targetUrl;
-            document.getElementById('viewer-title').innerText = `${year}년 기부금사용내역서 (PDF)`;
+            // Google Docs Viewer 주소 조합 및 렌더링
+            const rawUrl = pdfFiles[year];
+            const viewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(rawUrl)}&embedded=true`;
+
+            document.getElementById('pdf-viewer').src = viewerUrl;
+            document.getElementById('download-btn').href = rawUrl;
+            document.getElementById('viewer-title').innerText = `${year}년 기부금사용내역서 (PDF 미리보기)`;
         }
     </script>
 </body>
